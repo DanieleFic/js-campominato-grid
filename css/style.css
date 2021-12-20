@@ -1,0 +1,21 @@
+.ms_header{
+    background-color: wheat;
+}
+
+.ms_main{
+    background-color:aquamarine ;
+}
+
+.logo{
+    height: 40px;
+}
+
+.ms_buttonplay{
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.ms_footer{
+    background-color: white;
+    height: 50px;
+}
