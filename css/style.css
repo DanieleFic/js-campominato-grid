@@ -1,5 +1,5 @@
 .ms_header{
-    background-color: wheat;
+    background-color: white;
 }
 
 .ms_body{
@@ -24,23 +24,7 @@
     height: 50px;
 }
 
-.quadrato1{
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.5px solid black;
-}
-.quadrato2{
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.5px solid black;
-}
-.quadrato3{
+.quadrato{
     height: 50px;
     width: 50px;
     display: flex;
@@ -52,4 +36,10 @@
 .ms_container_width{
     padding: 0;
     width: 27%;
+    margin-top: 100px;
+}
+
+.colorate{
+    background-color: brown;
+    color: white;
 }

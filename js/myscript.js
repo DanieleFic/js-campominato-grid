@@ -15,18 +15,26 @@ bottonePlay.addEventListener("click" ,function(){
 
     caselle.innerHTML = "";
 
-if(scelta == "facile"){
-    for(i=1; i<=100; i++){
-        caselle.innerHTML += `<div class="quadrato1 col-1 item-${i}">${i}</div>`;
+    if(scelta == "facile"){
+        for(i=1; i<=100; i++){
+            caselle.innerHTML += `<div class="quadrato col-1 item-${i}">${i}</div>`;
+        }
+
+    }else if(scelta == "media"){
+        for(i=1; i<=81; i++){
+            caselle.innerHTML += `<div class="quadrato col-1 item-${i}">${i}</div>`;
+        }
+    }else{
+        for(i=1; i<=50; i++){
+        caselle.innerHTML += `<div class="quadrato col-1 item-${i}">${i}</div>`;
+        }
+    }
+    let caselleColorate = document.getElementsByClassName("quadrato");
+    for(i = 0 ; i < caselleColorate.length; i++){
+        caselleColorate[i].addEventListener("click", function(){
+        this.classList.add("colorate");
+        })
     }
 
-}else if(scelta == "media"){
-    for(i=1; i<=81; i++){
-        caselle.innerHTML += `<div class="quadrato2 col-1 item-${i}">${i}</div>`;
-    }
-}else
-    for(i=1; i<=50; i++){
-    caselle.innerHTML += `<div class="quadrato3 col-1 item-${i}">${i}</div>`;
-}
 });
 
