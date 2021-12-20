@@ -2,8 +2,12 @@
     background-color: wheat;
 }
 
-.ms_main{
+.ms_body{
     background-color:aquamarine ;
+}
+
+.ms_main{
+    height:820px;
 }
 
 .logo{
@@ -18,4 +22,34 @@
 .ms_footer{
     background-color: white;
     height: 50px;
+}
+
+.quadrato1{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid black;
+}
+.quadrato2{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid black;
+}
+.quadrato3{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid black;
+}
+
+.ms_container_width{
+    padding: 0;
+    width: 27%;
 }

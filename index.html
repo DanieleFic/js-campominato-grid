@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Griglia Campo Minato</title>
 </head>
-<body class="ms_main">
+<body class="ms_body">
     <!--header pagina con logo nome e difficolta -->
     <header>
         <div class="container-fluid ms_header py-2 ">
@@ -22,7 +22,7 @@
                     <select name="difficoltà" id="mySelect">
                     <option value="facile">Facile</option>
                     <option value="media">Media</option>
-                    <option value="difficle">Difficile</option>
+                    <option value="difficile">Difficile</option>
                     </select>
                     <button type="button" id="play" class="px-4 ms_buttonplay">Play</button>
                   </div>
@@ -30,13 +30,16 @@
         </div>
     </header>
      <!--main dove inseriamo le caselle -->
-    <main>
-        <div class="container-fluid">
-
+    <main class="ms_main">
+        <div class="container-fluid  py-5">
+            <div class="container ms_container_width d-flex flex-wrap align-items-center justify-content-center" >
+                    <div class="d-flex flex-wrap" id="caselle">
+                    </div>
+            </div>
         </div>
     </main>
      <!-- footer pagina -->
-    <footer class="ms_footer fixed-bottom d-flex align-items-center">
+    <footer class="ms_footer  d-flex align-items-center">
         <div class="container-fluid">
             <div class="row d-flex align-items-center align-middle ">
                 <div class="col-12 d-flex align-items-center ">
