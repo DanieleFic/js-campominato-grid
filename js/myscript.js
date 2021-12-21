@@ -26,14 +26,23 @@ bottonePlay.addEventListener("click" ,function(){
         }
     }else{
         for(i=1; i<=49; i++){
-        caselle.innerHTML += `<div class="quadrato3 colora col-1 item-${i}">${i}</div>`;
+            caselle.innerHTML += `<div class="quadrato3 colora col-1 item-${i}">${i}</div>`;
         }
     }
     let caselleColorate = document.getElementsByClassName("colora");
     for(i = 0 ; i < caselleColorate.length; i++){
         caselleColorate[i].addEventListener("click", function(){
         this.classList.add("colorate");
+        console.log(this.innerHTML)
         })
+    }
+    for (i = 0; i < 16 ;) {
+        let numeriRandom = Math.floor(Math.random() * 100 + 1);
+        //se 
+        if(!numeriBombeArray.includes(numeriRandom)){
+            numeriBombeArray.push(numeriRandom);
+            i++;
+        }
     }
 });
 
@@ -52,9 +61,14 @@ che l’utente ha cliccato su una cella che non era una b. */
 let numeriBombeArray = [];
 console.log(numeriBombeArray);
 
+
 //creiamo un ciclo for per generare 16 numeri che saranno le bombe
-for (i = 0; i < 16 ; i++ ) {
-    let numeriRandom = Math.floor(Math.random() * 100 + 1);
-    let pushInArray = numeriBombeArray.push(numeriRandom);
-  
-}
+
+
+/*let caselleBombe = document.getElementsByClassName("colora");
+    for(i = 0 ; i < caselleBombe.length; i++){
+        caselleBombee[i].addEventListener("click", function(){
+        this.classList.add("casellabomba");
+        console.log(this.innerHTML)
+        })
+    }*/
