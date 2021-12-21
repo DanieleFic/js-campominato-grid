@@ -10,39 +10,52 @@ Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 let bottonePlay = document.getElementById("play");
 
+let caselle = document.getElementById("caselle");
+
+let numeriBombeArray = []; 
+
+
+
+function generaQuadrati (numeroCelle) {
+    for(i=1; i<= numeroCelle; i++){
+        caselle.innerHTML += `<div class="quadrato colora col-1 item-${i}">${i}</div>`;
+    }
+}
+
+
+
 bottonePlay.addEventListener("click" ,function(){
     let scelta = document.getElementById("mySelect").value;
 
     caselle.innerHTML = "";
 
     if(scelta == "facile"){
-        for(i=1; i<=100; i++){
-            caselle.innerHTML += `<div class="quadrato colora col-1 item-${i}">${i}</div>`;
-        }
+        
+        generaQuadrati (100);
 
     }else if(scelta == "media"){
-        for(i=1; i<=81; i++){
-            caselle.innerHTML += `<div class="quadrato2 colora col-1 item-${i}">${i}</div>`;
-        }
+
+        generaQuadrati (81);
+
     }else{
-        for(i=1; i<=49; i++){
-            caselle.innerHTML += `<div class="quadrato3 colora col-1 item-${i}">${i}</div>`;
-        }
+
+        generaQuadrati (49);
+
     }
+
+    numeriRandomBombe ( 16 )
+
     let caselleColorate = document.getElementsByClassName("colora");
     for(i = 0 ; i < caselleColorate.length; i++){
         caselleColorate[i].addEventListener("click", function(){
+        const numeroCelle = parseInt(this.innerHTML);
         this.classList.add("colorate");
-        console.log(this.innerHTML)
-        })
-    }
-    for (i = 0; i < 16 ;) {
-        let numeriRandom = Math.floor(Math.random() * 100 + 1);
-        //se 
-        if(!numeriBombeArray.includes(numeriRandom)){
-            numeriBombeArray.push(numeriRandom);
-            i++;
+        if(numeriBombeArray.includes(numeroCelle)){
+            this.classList.add("casellabomba")
+            console.log("bomba")
         }
+        console.log(this.innerHTML);
+        })
     }
 });
 
@@ -58,11 +71,53 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 che l’utente ha cliccato su una cella che non era una b. */
 
 //creiamo un array vuoto
-let numeriBombeArray = [];
+
 console.log(numeriBombeArray);
 
 
 //creiamo un ciclo for per generare 16 numeri che saranno le bombe
+
+
+function numeriRandomBombe( numeriRandom){
+    while (numeriBombeArray.length < numeriRandom ) {
+        let numeriRandom = Math.floor(Math.random() * 100 + 1);
+        //se 
+        if(!numeriBombeArray.includes(numeriRandom)){
+            numeriBombeArray.push(numeriRandom);
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*let caselleBombe = document.getElementsByClassName("colora");
