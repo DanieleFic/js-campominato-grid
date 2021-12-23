@@ -21,12 +21,25 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 che l’utente ha cliccato su una cella che non era una b. */
 
 let bottonePlay = document.getElementById("play");
-
 let caselle = document.getElementById("caselle");
 let messVittoria = document.getElementById("messaggio")
 
 
 let numeriBombeArray = [];
+
+
+function tuttLeBombe() {
+    for (i = 0; i < caselleColorate.length; i++) {
+        if(numeriBombeArray.includes(parseInt(caselleColorate[i].innerHTML))){
+            caselleColorate[i].classList.add("casellabomba")
+            caselleColorate.innerHTML *= "&#128163;"
+        } 
+    }
+    const bloccoDiv = document.getElementById("finegioco");
+        bloccoDiv.classList.remove("fine_gioco") 
+        bloccoDiv.classList.add("game_over")
+}
+
 
 function generaQuadrati (numeroCelle) {
     for(i=1; i<= numeroCelle; i++){
@@ -95,17 +108,6 @@ bottonePlay.addEventListener("click" ,function(){
 
 
 
-
-function tuttLeBombe() {
-    for (i = 0; i < caselleColorate.length; i++) {
-        if(numeriBombeArray.includes(parseInt(caselleColorate[i].innerHTML))){
-            caselleColorate[i].classList.add("casellabomba")
-        } 
-    }
-    const bloccoDiv = document.getElementById("finegioco");
-        bloccoDiv.classList.remove("fine_gioco") 
-        bloccoDiv.classList.add("game_over")
-}
 
 
 
