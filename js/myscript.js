@@ -1,4 +1,4 @@
-/*
+/*PT1
 L’utente indica un livello di difficoltà in base al quale viene generata
 una griglia di gioco quadrata, in cui ogni cella contiene un numero tra
 quelli compresi in un range:
@@ -8,58 +8,8 @@ con difficoltà 3 => tra 1 e 49
 Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 */
 
-let bottonePlay = document.getElementById("play");
-
-let caselle = document.getElementById("caselle");
-
-let numeriBombeArray = []; 
-
-
-
-function generaQuadrati (numeroCelle) {
-    for(i=1; i<= numeroCelle; i++){
-        caselle.innerHTML += `<div class="quadrato colora col-1 item-${i}">${i}</div>`;
-    }
-}
-
-
-
-bottonePlay.addEventListener("click" ,function(){
-    let scelta = document.getElementById("mySelect").value;
-
-    caselle.innerHTML = "";
-
-    if(scelta == "facile"){
-        
-        generaQuadrati (100);
-
-    }else if(scelta == "media"){
-
-        generaQuadrati (81);
-
-    }else{
-
-        generaQuadrati (49);
-
-    }
-
-    numeriRandomBombe ( 16 )
-
-    let caselleColorate = document.getElementsByClassName("colora");
-    for(i = 0 ; i < caselleColorate.length; i++){
-        caselleColorate[i].addEventListener("click", function(){
-        const numeroCelle = parseInt(this.innerHTML);
-        this.classList.add("colorate");
-        if(numeriBombeArray.includes(numeroCelle)){
-            this.classList.add("casellabomba")
-            console.log("bomba")
-        }
-        console.log(this.innerHTML);
-        })
-    }
-});
-
-/*Il computer deve generare 16 numeri casuali nello stesso range
+/*PT2
+Il computer deve generare 16 numeri casuali nello stesso range
 della difficoltà prescelta: le bombe.
 I numeri nella lista delle bombe non possono essere duplicati.
 In seguito l’utente clicca su una cella: se il numero è presente nella lista dei numeri generati
@@ -70,25 +20,94 @@ possibile di numeri consentiti.
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte
 che l’utente ha cliccato su una cella che non era una b. */
 
-//creiamo un array vuoto
+let bottonePlay = document.getElementById("play");
 
-console.log(numeriBombeArray);
-
-
-//creiamo un ciclo for per generare 16 numeri che saranno le bombe
+let caselle = document.getElementById("caselle");
+let messVittoria = document.getElementById("messaggio")
 
 
-function numeriRandomBombe( numeriRandom){
-    while (numeriBombeArray.length < numeriRandom ) {
-        let numeriRandom = Math.floor(Math.random() * 100 + 1);
-        //se 
-        if(!numeriBombeArray.includes(numeriRandom)){
-            numeriBombeArray.push(numeriRandom);
+let numeriBombeArray = [];
+
+function generaQuadrati (numeroCelle) {
+    for(i=1; i<= numeroCelle; i++){
+        caselle.innerHTML += `<div id="scatole" class="quadrato colora col-1 item-${i}">${i}</div>`;
+    }
+    function numeriRandomBombe( numeriRandom){
+        while (numeriBombeArray.length < numeriRandom ) {
+            let numeriRandom = Math.floor(Math.random() * numeroCelle + 1);
             
+            if(!numeriBombeArray.includes(numeriRandom)){
+                numeriBombeArray.push(numeriRandom);
+            }
+            //console.log("posizione bombe " + numeriBombeArray )
+            //return posizioniBombeGenerate
         }
+        
+    }
+    numeriRandomBombe ( 16 )
+    console.log(numeriBombeArray)
+}
+
+
+let caselleColorate = document.getElementsByClassName("colora");
+
+
+bottonePlay.addEventListener("click" ,function(){
+    numeriBombeArray =[];
+    let scelta = document.getElementById("mySelect").value;
+
+    caselle.innerHTML = "";
+
+    if(scelta == "facile"){
+        
+        generaQuadrati (100);
+        
+    }else if(scelta == "media"){
+
+        generaQuadrati (81);
+        
+    }else{
+
+        generaQuadrati (49);
+
+    }
+
+    
+
+    
+
+    
+    for(i = 0 ; i < caselleColorate.length; i++){
+        caselleColorate[i].addEventListener("click", function(){
+        const numeroCelle = parseInt(this.innerHTML);
+        this.classList.add("colorate");
+        if(numeriBombeArray.includes(numeroCelle)){
+            tuttLeBombe()
+            alert("hai preso la bomba num" +" "+ this.innerHTML +" ," + "HAI PERSO!")
+            console.log("hai preso la bomba num" +" "+ this.innerHTML)
+            //tutteLeBombe()
+            //messVittoria.innerHTML = ("Hai perso! hai fatto" + numeroCelle + "giocate!")
+        }   
+        console.log(this.innerHTML);
+        })
+    }
+});
+
+
+
+
+function tuttLeBombe() {
+    for (i = 0; i < caselleColorate.length; i++) {
+        if(numeriBombeArray.includes(parseInt(caselleColorate[i].innerHTML))){
+            caselleColorate[i].classList.add("casellabomba")
+        }
+        
     }
 }
 
+function GameOver () {
+
+}
 
 
 

@@ -7,7 +7,7 @@
 }
 
 .ms_main{
-    height:821px;
+    max-height:1500px;
 }
 
 .logo{
@@ -32,29 +32,13 @@
     justify-content: center;
     border: 0.5px solid black;
     cursor: pointer;
-}
-.quadrato2{
-    height: 57px;
-    width: 57px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.5px solid black;
-    cursor: pointer;
-}
-.quadrato3{
-    height: 71px;
-    width: 71px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.5px solid black;
-    cursor: pointer;
+    
 }
 
 .ms_container_width{
     padding: 0;
-    width: 30%;
+    width: 600px;
+    height: 500px;
     margin-top: 100px;
 }
 
@@ -65,4 +49,9 @@
 
 .casellabomba{
     background-color: red;
+}
+
+.box2{
+    width: calc(500px/10);
+    height: calc(500px/10);
 }
