@@ -100,14 +100,14 @@ function tuttLeBombe() {
     for (i = 0; i < caselleColorate.length; i++) {
         if(numeriBombeArray.includes(parseInt(caselleColorate[i].innerHTML))){
             caselleColorate[i].classList.add("casellabomba")
-        }
-        
+        } 
     }
+    const bloccoDiv = document.getElementById("finegioco");
+        bloccoDiv.classList.remove("fine_gioco") 
+        bloccoDiv.classList.add("game_over")
 }
 
-function GameOver () {
 
-}
 
 
 

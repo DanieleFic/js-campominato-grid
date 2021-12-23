@@ -55,3 +55,15 @@
     width: calc(500px/10);
     height: calc(500px/10);
 }
+
+.game_over{
+    display: block;
+    height: 800px;
+    width: 800px;
+}
+
+.fine_gioco{
+    display: none;
+    height: 800px;
+    width: 800px;
+}
