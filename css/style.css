@@ -59,12 +59,16 @@
 
 .game_over{
     display: block;
-    height: 800px;
-    width: 800px;
+    height: 820px;
+    width: 1700px;
 }
 
 .fine_gioco{
     display: none;
     height: 800px;
     width: 800px;
+}
+
+.rigioca{
+    background-color: red;
 }

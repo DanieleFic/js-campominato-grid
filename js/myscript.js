@@ -28,16 +28,18 @@ let messVittoria = document.getElementById("messaggio")
 let numeriBombeArray = [];
 
 
-function tuttLeBombe() {
+function tutteLeBombe() {
     for (i = 0; i < caselleColorate.length; i++) {
         if(numeriBombeArray.includes(parseInt(caselleColorate[i].innerHTML))){
             caselleColorate[i].classList.add("casellabomba")
-            caselleColorate.innerHTML *= "&#128163;"
+            caselleColorate.innerHTML += "&#128163;"
         } 
     }
     const bloccoDiv = document.getElementById("finegioco");
         bloccoDiv.classList.remove("fine_gioco") 
         bloccoDiv.classList.add("game_over")
+        const rigioca = document.getElementById("rigioca")
+        rigioca.classList.add("rigioca")
 }
 
 
@@ -45,15 +47,15 @@ function generaQuadrati (numeroCelle) {
     for(i=1; i<= numeroCelle; i++){
         caselle.innerHTML += `<div id="scatole" class="quadrato colora col-1 item-${i}">${i}</div>`;
     }
-    function numeriRandomBombe( numeriRandom){
+    function numeriRandomBombe(numeriRandom){
+        console.log(numeriBombeArray)
         while (numeriBombeArray.length < numeriRandom ) {
             let numeriRandom = Math.floor(Math.random() * numeroCelle + 1);
             
             if(!numeriBombeArray.includes(numeriRandom)){
                 numeriBombeArray.push(numeriRandom);
             }
-            //console.log("posizione bombe " + numeriBombeArray )
-            //return posizioniBombeGenerate
+            
         }
         
     }
@@ -85,9 +87,6 @@ bottonePlay.addEventListener("click" ,function(){
 
     }
 
-    
-
-    
 
     
     for(i = 0 ; i < caselleColorate.length; i++){
@@ -95,7 +94,7 @@ bottonePlay.addEventListener("click" ,function(){
         const numeroCelle = parseInt(this.innerHTML);
         this.classList.add("colorate");
         if(numeriBombeArray.includes(numeroCelle)){
-            tuttLeBombe()
+            tutteLeBombe()
             alert("hai preso la bomba num" +" "+ this.innerHTML +" ," + "HAI PERSO!")
             console.log("hai preso la bomba num" +" "+ this.innerHTML)
             //tutteLeBombe()
